@@ -19,6 +19,8 @@
   "homepage": "https://github.com/jwellstx/friend_finder#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "nodemon": "^2.0.3",
     "path": "^0.12.7"
   }
 }
