@@ -38,8 +38,22 @@ app.post("/api/friends", (req, res) => {
             });
         }
         else {
+            // create some randomness where multiple people match
+            var minNum = Math.min(...differences)  // ... creates  new array and not a pointer
+            var matches = [];
+            // find all friends who have the same difference number
+            for (var x = 0; x < differences.length; x++) {
+                if (differences[x] === minNum) {
+                    matches.push(data[x])
+                }
+            }
+            // find random index of friends who match
+            var randomIndex = Math.floor((Math.random() * matches.length));
+            var friend = data[randomIndex];
+
             res.json({ 
-                data: data[differences.indexOf(Math.min(...differences))],
+                // data: data[differences.indexOf(Math.min(...differences))],
+                data: friend,
                 code: "100"
             });
             data.push(req.body);
